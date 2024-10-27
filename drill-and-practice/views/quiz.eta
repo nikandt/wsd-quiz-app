@@ -1,0 +1,14 @@
+<% layout("./layouts/layout.eta") %>
+
+<h2><%= it.question_text %></h2>
+
+<ul>
+    <% it.options.forEach((option) => { %>
+            <div class="quiz" style="padding: 10px">
+                <li class="quiz">
+                    <span><%= option.option_text %></span>
+                    <form id="<%= option.option_text %>" method="POST" action="/quiz/<%= it.topic_id %>/questions/<%= it.id %>/options/<%= option.id %>"><input type="submit" value="Choose"/></form>
+                </li>
+            </div>
+    <% }); %>
+</ul>
